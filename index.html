@@ -2,40 +2,326 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Мой сайт</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111827;
-      color: white;
-      text-align: center;
-      padding: 80px 20px;
-    }
-    h1 {
-      font-size: 42px;
-      color: #60a5fa;
-    }
-    p {
-      font-size: 18px;
-      color: #d1d5db;
-    }
-    a {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background: #2563eb;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TurboSlugs — Старый форум</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;background:#d5d8df;color:#222;
+  font:13px Verdana,Arial,sans-serif;
+}
+a{color:#174f86;text-decoration:none}
+a:hover{text-decoration:underline;color:#c04420}
+.wrap{max-width:1000px;margin:20px auto;background:#fff;
+  border:1px solid #78879a;box-shadow:0 2px 8px #888}
+.top{
+  background:linear-gradient(#527ba4,#23466c);
+  color:white;padding:23px 20px;border-bottom:4px solid #d4a34b;
+}
+.brand{font-size:30px;font-weight:bold;letter-spacing:-1px}
+.brand span{color:#f2d38a}
+.subtitle{margin-top:5px;color:#e0e8f1}
+.nav{background:#e8edf4;border-bottom:1px solid #a8b6c7;
+  padding:10px 15px;display:flex;gap:18px;flex-wrap:wrap}
+.nav a{font-weight:bold}
+.notice{margin:14px;padding:10px;background:#fff7d7;
+  border:1px solid #d8c47c;color:#665322}
+.crumb{padding:12px 15px;color:#555}
+.crumb a{font-weight:bold}
+.section-title{
+  background:linear-gradient(#7799ba,#476d94);color:white;
+  padding:9px 12px;font-weight:bold;border-top:1px solid #fff;
+}
+table{width:100%;border-collapse:collapse;table-layout:fixed}
+th{background:#e7edf4;color:#354b62;text-align:left;
+  padding:9px 8px;border:1px solid #c1ccd8;font-size:11px}
+td{padding:11px 8px;border:1px solid #d0d7e0;
+  vertical-align:middle;overflow-wrap:anywhere}
+.forum{background:#f9fafc}
+.forum:hover,.topic:hover{background:#eef5fc}
+.icon{font-size:23px;text-align:center;width:48px}
+.name{font-size:13px;font-weight:bold}
+.desc{color:#6c747d;font-size:11px;margin-top:4px}
+.stats{text-align:center;color:#555;font-size:12px;width:72px}
+.last{width:190px;font-size:11px;color:#626b76}
+.last a{font-weight:bold}
+.tools{padding:13px 15px;background:#f0f2f5;
+  border-top:1px solid #c8d0db;display:flex;gap:8px;flex-wrap:wrap}
+input,textarea{
+  font:13px Verdana,Arial,sans-serif;padding:9px;
+  border:1px solid #9caaba;background:#fff;max-width:100%;
+}
+button{
+  padding:9px 13px;border:1px solid #1e4164;
+  background:linear-gradient(#5e83a8,#315777);
+  color:white;font-weight:bold;cursor:pointer;
+}
+button:hover{filter:brightness(1.12)}
+.search{display:flex;gap:6px;margin-left:auto}
+.search input{width:180px}
+.topics{padding:15px;background:#fff}
+.topic{padding:12px;border:1px solid #d0d7e0;
+  margin-bottom:7px;background:#fafbfd}
+.topic-title{font-weight:bold;font-size:13px}
+.meta{font-size:11px;color:#777;margin-top:5px}
+.badge{font-size:10px;background:#dce8f4;color:#345878;
+  padding:3px 5px;border:1px solid #bdccdc}
+.panel{margin:15px;border:1px solid #bac5d2}
+.panel-body{padding:14px;background:#f7f9fb}
+.panel-body p{line-height:1.7}
+.form-row{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
+.form-row input,.form-row textarea{width:100%}
+footer{background:#e8edf4;border-top:1px solid #bdc7d4;
+  text-align:center;padding:17px;color:#697686;font-size:11px}
+.hidden{display:none!important}
+@media(max-width:600px){
+  .wrap{margin:0;border-left:0;border-right:0}
+  .top{padding:18px 14px}
+  .brand{font-size:25px}
+  .last{display:none}
+  .stats{width:48px;font-size:10px}
+  th,td{padding:8px 5px}
+  .icon{width:35px;font-size:19px}
+  .search{margin-left:0;width:100%}
+  .search input{flex:1;width:50px}
+}
+</style>
 </head>
 <body>
-  <h1>Привет! 👋</h1>
-  <p>Это мой первый сайт в интернете.</p>
-  <a href="https://github.com/">Мой GitHub</a>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">Turbo<span>Slugs</span></div>
+    <div class="subtitle">Старый добрый интернет. Общайся, обсуждай, оставайся.</div>
+  </header>
+
+  <nav class="nav">
+    <a href="#home">Главная</a>
+    <a href="#forums">Форумы</a>
+    <a href="#topics">Последние темы</a>
+    <a href="#about">О форуме</a>
+  </nav>
+
+  <main id="home">
+    <div class="notice">
+      <b>Добро пожаловать!</b> Вы находитесь на учебном проекте,
+      оформленном в стиле классических интернет-форумов.
+    </div>
+
+    <div class="crumb">Главная страница → <b>Список форумов</b></div>
+
+    <section id="forums">
+      <div class="section-title">╋ Основные разделы</div>
+      <table>
+        <thead>
+          <tr><th colspan="2">Форум</th><th class="stats">Темы</th>
+            <th class="stats">Сообщения</th><th class="last">Последнее сообщение</th></tr>
+        </thead>
+        <tbody id="forum-list">
+          <tr class="forum">
+            <td class="icon">💬</td>
+            <td><a class="name" href="#topics" data-forum="Общение">Общение</a>
+              <div class="desc">Знакомства, разговоры обо всём и ни о чём.</div></td>
+            <td class="stats" data-count="Общение">12</td>
+            <td class="stats" data-posts="Общение">86</td>
+            <td class="last">Сегодня<br><a href="#topics">Последние разговоры</a></td>
+          </tr>
+          <tr class="forum">
+            <td class="icon">🖥️</td>
+            <td><a class="name" href="#topics" data-forum="Компьютеры">Компьютеры и IT</a>
+              <div class="desc">Программы, железо, интернет и технологии.</div></td>
+            <td class="stats" data-count="Компьютеры">8</td>
+            <td class="stats" data-posts="Компьютеры">54</td>
+            <td class="last">Вчера<br><a href="#topics">Вопросы новичков</a></td>
+          </tr>
+          <tr class="forum">
+            <td class="icon">🎮</td>
+            <td><a class="name" href="#topics" data-forum="Игры">Игры</a>
+              <div class="desc">Старые игры, прохождения и игровые новости.</div></td>
+            <td class="stats" data-count="Игры">21</td>
+            <td class="stats" data-posts="Игры">143</td>
+            <td class="last">Вчера<br><a href="#topics">Во что играем?</a></td>
+          </tr>
+          <tr class="forum">
+            <td class="icon">🛠️</td>
+            <td><a class="name" href="#topics" data-forum="Проекты">Наши проекты</a>
+              <div class="desc">Показывайте свои работы и делитесь опытом.</div></td>
+            <td class="stats" data-count="Проекты">5</td>
+            <td class="stats" data-posts="Проекты">27</td>
+            <td class="last">Сегодня<br><a href="#topics">Покажи свой сайт</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="topics">
+      <div class="section-title">╋ Последние темы форума</div>
+      <div class="tools">
+        <button id="new-topic-btn">+ Новая тема</button>
+        <div class="search">
+          <input id="search" placeholder="Поиск по темам..." aria-label="Поиск по темам">
+          <button id="search-btn">Найти</button>
+        </div>
+      </div>
+
+      <div id="topic-form" class="panel hidden">
+        <div class="section-title">Создать новую тему</div>
+        <div class="panel-body">
+          <form id="create-form">
+            <div class="form-row">
+              <label for="author">Ваш ник:</label>
+              <input id="author" maxlength="30" placeholder="Гость" required>
+            </div>
+            <div class="form-row">
+              <label for="category">Раздел:</label>
+              <select id="category">
+                <option>Общение</option>
+                <option>Компьютеры</option>
+                <option>Игры</option>
+                <option>Проекты</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="subject">Название темы:</label>
+              <input id="subject" maxlength="100" required>
+            </div>
+            <div class="form-row">
+              <label for="message">Сообщение:</label>
+              <textarea id="message" rows="5" maxlength="3000" required></textarea>
+            </div>
+            <button type="submit">Опубликовать</button>
+            <button type="button" id="cancel">Отмена</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="topics" id="topic-list" aria-live="polite">
+        <article class="topic" data-category="Проекты">
+          <span class="badge">ВАЖНО</span>
+          <a class="topic-title" href="#about">Добро пожаловать на TurboSlugs!</a>
+          <div class="meta">Автор: Администратор · Раздел: Наши проекты · Ответов: 3</div>
+        </article>
+        <article class="topic" data-category="Игры">
+          <a class="topic-title" href="#about">В какие игры вы играете в 2026 году?</a>
+          <div class="meta">Автор: OldGamer · Раздел: Игры · Ответов: 17</div>
+        </article>
+        <article class="topic" data-category="Компьютеры">
+          <a class="topic-title" href="#about">Вспоминаем старый интернет</a>
+          <div class="meta">Автор: dial_up · Раздел: Компьютеры · Ответов: 9</div>
+        </article>
+        <article class="topic" data-category="Общение">
+          <a class="topic-title" href="#about">Расскажите немного о себе</a>
+          <div class="meta">Автор: Guest2004 · Раздел: Общение · Ответов: 12</div>
+        </article>
+      </div>
+      <p id="empty" class="hidden" style="padding:15px">Темы не найдены.</p>
+    </section>
+
+    <section id="about">
+      <div class="section-title">╋ Информация о форуме</div>
+      <div class="panel-body">
+        <p><b>TurboSlugs — место для общения.</b></p>
+        <p>Учебный проект, вдохновлённый форумами начала 2000-х.
+        Здесь можно изучать веб-дизайн, HTML и CSS, а также
+        экспериментировать с интерфейсом классических форумов.</p>
+        <p style="margin-top:10px;color:#777;font-size:11px">
+          Зарегистрированных пользователей: 128 · Тем: 46 · Сообщений: 310
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    TurboSlugs Forum © 2004–2026 · Учебный проект<br>
+    Сделано с любовью к старому интернету.
+  </footer>
+</div>
+
+<script>
+const formBox = document.getElementById('topic-form');
+const topicList = document.getElementById('topic-list');
+const form = document.getElementById('create-form');
+const search = document.getElementById('search');
+
+document.getElementById('new-topic-btn').onclick = () => {
+  formBox.classList.toggle('hidden');
+  if (!formBox.classList.contains('hidden')) {
+    formBox.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+};
+
+document.getElementById('cancel').onclick = () => {
+  formBox.classList.add('hidden');
+};
+
+function filterTopics() {
+  const query = search.value.trim().toLocaleLowerCase('ru');
+  let visible = 0;
+
+  document.querySelectorAll('.topic').forEach(topic => {
+    const matches = topic.textContent.toLocaleLowerCase('ru').includes(query);
+    topic.classList.toggle('hidden', !matches);
+    if (matches) visible++;
+  });
+
+  document.getElementById('empty').classList.toggle('hidden', visible > 0);
+}
+
+document.getElementById('search-btn').onclick = filterTopics;
+search.addEventListener('input', filterTopics);
+
+document.querySelectorAll('[data-forum]').forEach(link => {
+  link.addEventListener('click', () => {
+    search.value = '';
+    document.querySelectorAll('.topic').forEach(topic => {
+      topic.classList.toggle('hidden',
+        topic.dataset.category !== link.dataset.forum);
+    });
+    document.getElementById('empty').classList.toggle('hidden',
+      topicList.querySelectorAll('.topic:not(.hidden)').length > 0);
+  });
+});
+
+form.addEventListener('submit', event => {
+  event.preventDefault();
+
+  const author = document.getElementById('author').value.trim();
+  const category = document.getElementById('category').value;
+  const subject = document.getElementById('subject').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  if (!author || !subject || !message) return;
+
+  const article = document.createElement('article');
+  article.className = 'topic';
+  article.dataset.category = category;
+
+  const title = document.createElement('div');
+  title.className = 'topic-title';
+  title.textContent = subject;
+
+  const meta = document.createElement('div');
+  meta.className = 'meta';
+  meta.textContent = `Автор: ${author} · Раздел: ${category} · Ответов: 0`;
+
+  const body = document.createElement('p');
+  body.style.cssText = 'margin-top:10px;white-space:pre-wrap';
+  body.textContent = message;
+
+  article.append(title, meta, body);
+  topicList.prepend(article);
+
+  const count = document.querySelector(`[data-count="${category}"]`);
+  const posts = document.querySelector(`[data-posts="${category}"]`);
+  if (count) count.textContent = Number(count.textContent) + 1;
+  if (posts) posts.textContent = Number(posts.textContent) + 1;
+
+  form.reset();
+  formBox.classList.add('hidden');
+  search.value = '';
+  filterTopics();
+  article.scrollIntoView({behavior:'smooth',block:'center'});
+});
+</script>
 </body>
 </html>
